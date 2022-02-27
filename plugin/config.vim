@@ -37,15 +37,6 @@ set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 
-" python-mode :help pymode
-let g:pymode_rope = 1
-let g:pymode_rope_goto_definition_bind = 'gd'
-let g:pymode_rope_goto_definition_cmd = 'vnew'
-let g:pymode_rope_show_doc_bind = '<C-p>'
-let g:pymode_rope_completion = 1
-let g:pymode_rope_completion_bind = '<C-Space>'
-let g:pymode_rope_complete_on_dot = 1
-
 " http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 au Filetype python call TextEnableCodeSnip('sql', "'''", "'''", 'SpecialComment')
 
