@@ -39,11 +39,9 @@ let g:airline_theme='onehalfdark'
 
 " python-mode :help pymode
 let g:pymode_rope = 1
-let g:pymode_rope_find_it_bind = 1
 let g:pymode_rope_goto_definition_bind = 'gd'
 let g:pymode_rope_goto_definition_cmd = 'vnew'
 let g:pymode_rope_show_doc_bind = '<C-p>'
-let g:pymode_syntax = 1
 let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_complete_on_dot = 1
