@@ -18,7 +18,7 @@ set splitbelow
 set splitright
 set completeopt=menuone,noinsert
 
-" Spell bad check
+" Bad spell check
 set spell spelllang=en_us
 highlight clear SpellBad
 highlight SpellBad cterm=underline
@@ -37,10 +37,6 @@ set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 
-
-" Enable folding with the spacebar
-nnoremap <space> za
-
 "python-mode :help pymode
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_bind = 'gd'
@@ -50,23 +46,6 @@ let g:pymode_syntax = 1
 let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_complete_on_dot = 1
-
-" AutoComplete
-"let g:ycm_autoclose_preview_window_after_completion=1
-"nmap K :YcmCompleter GetDoc<CR>
-
-
-" NERDTree
-" let g:NERDTreeDirArrowExpandable = '>'
-" let g:NERDTreeDirArrowCollapsible = 'v'
-"let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules']
-"map <C-t> :NERDTreeToggle<CR>
-
-" FZF
-"map <C-]> :FZF<CR>
-
-" copy all and quit
-"nmap cpq :%y+ <Bar> :q!<CR>
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile,CursorMoved * match BadWhitespace /\s\+$/
@@ -118,3 +97,8 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
                 \ contains=@'.group
 endfunction
 
+" copy all and quit
+"nmap cpq :%y+ <Bar> :q!<CR>
+
+" Enable folding with the spacebar
+" nnoremap <space> za
