@@ -47,7 +47,6 @@ let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_complete_on_dot = 1
 
-" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 au Filetype python call TextEnableCodeSnip('sql', "'''", "'''", 'SpecialComment')
 
 " vim-go
@@ -65,9 +64,12 @@ let g:go_term_enabled = 1
 let g:go_term_mode = "silent keepalt rightbelow 15 split"
 let g:go_def_reuse_buffer = 1
 
+" :verbose setlocal omnifunc?
+let g:go_code_completion_enabled = 1
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
 autocmd FileType go nmap <leader>r :call ReuseVimGoTerm('GoRun')<Return>
 
-" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 au Filetype go call TextEnableCodeSnip('sql', "`", "`", 'SpecialComment')
 
 " highlight
@@ -94,6 +96,7 @@ au BufEnter,CursorHoldI,CursorMovedI *.md update
 " au FileType python set equalprg=autopep8\ -
 " au FileType sql set equalprg=sqlformat\ -r\ -k\ upper\ -
 
+" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
     let ft=toupper(a:filetype)
     let group='textGroup'.ft
