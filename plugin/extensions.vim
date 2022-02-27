@@ -1,24 +1,3 @@
-set nocompatible
-filetype off
-
-call plug#begin()
-
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'tmhedberg/SimpylFold'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'python-mode/python-mode'
-Plug 'sheerun/vim-polyglot'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'ferrine/md-img-paste.vim'
-
-call plug#end()
-filetype plugin indent on
-
 set nu
 set tabstop=4
 set softtabstop=4
