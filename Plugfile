@@ -6,7 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'tmhedberg/SimpylFold'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'sheerun/vim-polyglot'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'ferrine/md-img-paste.vim'
