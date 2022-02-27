@@ -37,16 +37,39 @@ set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 
-"python-mode :help pymode
+" python-mode :help pymode
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_bind = 'gd'
 let g:pymode_rope_rename_module_bind = '<C-r>r'
 let g:pymode_syntax = 1
-
 let g:pymode_rope_completion = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 let g:pymode_rope_complete_on_dot = 1
 
+" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+au Filetype python call TextEnableCodeSnip('sql', "'''", "'''", 'SpecialComment')
+
+" vim-go
+function! ReuseVimGoTerm(cmd) abort
+    for w in nvim_list_wins()
+        if "goterm" == nvim_buf_get_option(nvim_win_get_buf(w), 'filetype')
+            call nvim_win_close(w, v:true)
+            break
+        endif
+    endfor
+    execute a:cmd
+endfunction
+
+let g:go_term_enabled = 1
+let g:go_term_mode = "silent keepalt rightbelow 15 split"
+let g:go_def_reuse_buffer = 1
+
+autocmd FileType go nmap <leader>r :call ReuseVimGoTerm('GoRun')<Return>
+
+" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+au Filetype go call TextEnableCodeSnip('sql', "`", "`", 'SpecialComment')
+
+" highlight
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile,CursorMoved * match BadWhitespace /\s\+$/
 
@@ -67,10 +90,8 @@ let g:mdip_imgdir = '__images'
 au FocusGained,CursorHold,CursorMoved *.md checktime
 au BufEnter,CursorHoldI,CursorMovedI *.md update
 
-au FileType python set equalprg=autopep8\ -
-au FileType sql set equalprg=sqlformat\ -r\ -k\ upper\ -
-" http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
-au Filetype python call TextEnableCodeSnip('sql', "'''", "'''", 'SpecialComment')
+" au FileType python set equalprg=autopep8\ -
+" au FileType sql set equalprg=sqlformat\ -r\ -k\ upper\ -
 
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
     let ft=toupper(a:filetype)
